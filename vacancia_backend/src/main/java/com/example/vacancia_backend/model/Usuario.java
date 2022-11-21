@@ -3,12 +3,13 @@ package com.example.vacancia_backend.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="usuario")
+@Table(name = "usuario")
 public class Usuario
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+
 
     @Column(name = "nombre")
     private String nombre;
@@ -18,7 +19,6 @@ public class Usuario
     private String correo;
 
     private String contrasena;
-
 
     public Long getId() {
         return Id;

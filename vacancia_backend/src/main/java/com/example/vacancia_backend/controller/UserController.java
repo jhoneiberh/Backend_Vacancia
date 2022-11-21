@@ -5,23 +5,28 @@ import com.example.vacancia_backend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 public class UserController
 {
-
     @Autowired
     private UserService service;
-
 
     @GetMapping("/consultarporid/")
     public ResponseEntity<?> filtrar(@Param("{id}") Long id)
     {
         return ResponseEntity.ok(service.findByUser(id));
+    }
+
+
+    @GetMapping("/consultarAll")
+    public ResponseEntity<?> consultarByUser(){
+
+        return ResponseEntity.ok(service.buscarTdoso());
     }
 
 
